@@ -18,6 +18,6 @@ The various functions can be found via `karma_cli -h` and their arguments via `k
 
 # To-do:
 * add regex instead of try-except for upvoting and downvoting
-* be able to import a spreadsheet/csv of usernames+passwords+client info
 * implement threading so that the upvotes are more randomly spread out over time
 * write unit tests for various steps
+* add proxy support to prevent IP-bans
