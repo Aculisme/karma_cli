@@ -12,7 +12,7 @@ def add_user(args):
     client_id = args.client_id
     client_secret = args.client_secret
 
-    with open('users.p','rb+') as f:
+    with open('users.p','r+b') as f:
         users = pickle.load(f)
     
     users[username] = [password, client_id, client_secret]
@@ -43,7 +43,7 @@ def del_user(args):
     
     username = args.username
 
-    with open('users.p','rb+') as f:
+    with open('users.p','r+b') as f:
         users = pickle.load(f)
 
     try:
