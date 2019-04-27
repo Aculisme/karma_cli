@@ -1,6 +1,9 @@
 import pickle
 import pprint as pp
 import praw
+import time
+from random import randint
+
 
 def add_user(args):
 
@@ -66,6 +69,7 @@ def upvote(args):
             reddit.submission(url=url).upvote()
         except: # it's also pretty ridiculous that it will fail n times with a comment first
             reddit.comment(url=url).upvote()
+        time.sleep(randint(0,5))
 
 
 def downvote(args):
@@ -85,3 +89,4 @@ def downvote(args):
             reddit.submission(url=url).downvote()
         except:
             reddit.comment(url=url).downvote()
+        time.sleep(randint(0,5))
