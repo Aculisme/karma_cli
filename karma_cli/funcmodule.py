@@ -6,14 +6,14 @@ from random import randint
 import argparse
 import pandas 
 
+
 def add_user(args): 
     username = args.username
     password = args.password
     client_id = args.client_id
     client_secret = args.client_secret
 
-    with open('users.p','r+b') as f:
-        users = pickle.load(f)
+    users = user_list()
     
     users[username] = [password, client_id, client_secret]
     
@@ -24,7 +24,6 @@ def add_csv(args):
     
     path = args.path
 
-    colnames = ['username', 'password', 'client_id', 'client_secret']
     try:
         data = pandas.read_csv(path)#, names=colnames)
     except:
@@ -38,6 +37,7 @@ def add_csv(args):
         args.client_secret = row['client_secret']
         print(args)
         add_user(args)
+
 
 def del_user(args):
     
@@ -61,8 +61,10 @@ def viewall(args=''):
 
 def user_list():
     with open('users.p','rb') as f:
-        users = pickle.load(f)
-    return users
+        try:
+            return(pickle.load(f))
+        except:
+            return {}
 
 
 def upvote(args):

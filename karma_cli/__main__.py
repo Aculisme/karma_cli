@@ -1,6 +1,7 @@
 import sys
-from .funcmodule import *
+from .funcmodule import * # change later
 import argparse
+
 
 def main():
     parser = argparse.ArgumentParser() 
